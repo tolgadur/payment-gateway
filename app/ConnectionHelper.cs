@@ -42,8 +42,7 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<PaymentDetails>("SELECT * FROM Payments WHERE 'Id' =" + id, new DynamicParameters());
-                return (PaymentDetails)output;
+                return cnn.Query<PaymentDetails>(String.Format("SELECT * FROM Payments WHERE Id='{0}'", id), new DynamicParameters()).FirstOrDefault();
             }
         }
 

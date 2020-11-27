@@ -46,9 +46,7 @@ namespace app.Controllers
             }
 
             var paymentDetails = ConnectionHelper.GetPaymentById(paymentId);
-
-            // return response
-            return new OkObjectResult(new PaymentDetailsPayload().Map(paymentDetails));
+            return new OkObjectResult(paymentDetails);
         }
 
         /// <summary>

@@ -41,9 +41,10 @@ namespace app.PaymentGatewayService
                 PaymentDetails paymentDetails = new PaymentDetails().Map(payload, true);
 
                 // save in database
+                ConnectionHelper.SavePayment(paymentDetails);
 
                 // return response
-                return new OkObjectResult(new PaymentProcessSucessPayload().Map(paymentDetails));
+                return new OkObjectResult(new GetPaymentDetailsResponse().Map(paymentDetails));
             }
             catch (Exception ex)
             {

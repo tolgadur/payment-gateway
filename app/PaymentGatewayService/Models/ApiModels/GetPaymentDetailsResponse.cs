@@ -17,9 +17,9 @@ namespace app.PaymentGatewayService.Models
 
 
     /// <summary>
-    /// Defines the <see cref="PaymentProcessSucessPayload" />.
+    /// Defines the <see cref="GetPaymentDetailsResponse" />.
     /// </summary>
-    public class PaymentProcessSucessPayload
+    public class GetPaymentDetailsResponse
     {
         /// <summary>
         /// Gets or sets the document identifier.
@@ -40,7 +40,7 @@ namespace app.PaymentGatewayService.Models
         /// <returns>
         /// The <see cref="PaymentDetails" />.
         /// </returns>
-        public PaymentProcessSucessPayload Map(PaymentDetails paymentDetails)
+        public GetPaymentDetailsResponse Map(PaymentDetails paymentDetails)
         {
             this.Id = paymentDetails.Id;
             this.Success = paymentDetails.Success;
