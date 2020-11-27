@@ -20,7 +20,7 @@
     "app": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "PaymentGateway",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

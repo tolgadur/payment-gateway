@@ -1,6 +1,5 @@
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\app.exe
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\app.csprojAssemblyReference.cache
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\app.AssemblyInfoInputs.cache
@@ -10,7 +9,6 @@ C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\staticw
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\staticwebassets\app.StaticWebAssets.xml
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\app.csproj.CopyComplete
-C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.WebApiCompatShim.dll
@@ -24,7 +22,6 @@ C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\NSwag.A
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\NJsonSchema.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\NSwag.Core.dll
-C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\app.deps.json
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\app.runtimeconfig.json
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\app.runtimeconfig.dev.json
@@ -37,3 +34,11 @@ C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Microso
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\app.csproj.CoreCompileInputs.cache
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\app.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\app.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mrhap\side_projects\payment-gateway\app\obj\Debug\netcoreapp3.1\scopedcss\bundle\app.styles.css
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\database.db
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll

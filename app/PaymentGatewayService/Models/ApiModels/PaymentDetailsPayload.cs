@@ -23,6 +23,12 @@ namespace app.Controllers
         /// <summary>
         /// Gets or sets the card number.
         /// </summary>
+        [JsonProperty("Id", Required = Required.AllowNull)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the card number.
+        /// </summary>
         [JsonProperty("CardNumber", Required = Required.Always)]
         public string CardNumber { get; set; }
 
@@ -55,5 +61,24 @@ namespace app.Controllers
         /// </summary>
         [JsonProperty("ExpiryMonth", Required = Required.Default)]
         public DateTime ExpiryMonth { get; set; }
+
+        /// <summary>
+        /// Maps the api payload
+        /// </summary>
+        /// <param name="dto">The dto.</param>
+        /// <returns>
+        /// The <see cref="PaymentDetails" />.
+        /// </returns>
+        public PaymentDetailsPayload Map(PaymentDetails paymentDetails)
+        {
+            this.Id = paymentDetails.Id;
+            this.Amount = paymentDetails.Amount;
+            this.CardNumber = paymentDetails.CardNumber;
+            this.Currency = paymentDetails.Currency;
+            this.Cvv = paymentDetails.Cvv;
+            this.Success = paymentDetails.Success;
+            this.ExpiryMonth = paymentDetails.ExpiryMonth;
+            return this;
+        }
     }
 }

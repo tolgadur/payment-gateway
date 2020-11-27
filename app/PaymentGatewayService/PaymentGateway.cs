@@ -7,13 +7,16 @@
 
 namespace app.PaymentGatewayService
 {
-    using app.Controllers;
-    using app.PaymentGatewayService.Models;
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Data.SQLite;
+    using System.Configuration;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using app.Controllers;
+    using app.PaymentGatewayService.Models;
+    using System.Data;
 
 
     /// <summary>
@@ -40,7 +43,7 @@ namespace app.PaymentGatewayService
                 // save in database
 
                 // return response
-                return new OkObjectResult(new PaymentDetailsResponse().Map(paymentDetails));
+                return new OkObjectResult(new PaymentProcessSucessPayload().Map(paymentDetails));
             }
             catch (Exception ex)
             {
@@ -48,6 +51,5 @@ namespace app.PaymentGatewayService
             }
 
         }
-
     }
 }

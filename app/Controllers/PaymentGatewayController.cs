@@ -18,6 +18,7 @@ namespace app.Controllers
     using Microsoft.Extensions.Logging;
     using Newtonsoft.Json.Linq;
     using app.PaymentGatewayService;
+    using Microsoft.Extensions.Configuration;
 
     [ApiController]
     [Route("[controller]")]
@@ -25,9 +26,10 @@ namespace app.Controllers
     {
         private readonly ILogger<PaymentGatewayController> _logger;
 
-        public PaymentGatewayController(ILogger<PaymentGatewayController> logger)
+        public PaymentGatewayController(IConfiguration configuration, ILogger<PaymentGatewayController> logger)
         {
             _logger = logger;
+            ConnectionHelper.Init(configuration);
         }
 
         /// <summary>
@@ -43,7 +45,10 @@ namespace app.Controllers
                 return BadRequest("Payment Id is not specified.");
             }
 
-            return Ok("Hello World");
+            var paymentDetails = ConnectionHelper.GetPaymentById(paymentId);
+
+            // return response
+            return new OkObjectResult(new PaymentDetailsPayload().Map(paymentDetails));
         }
 
         /// <summary>
@@ -56,7 +61,6 @@ namespace app.Controllers
         {
             return await PaymentGateway.ProcessPayment(payload);
         }
-
 
         [HttpGet]
         public IActionResult Get()
