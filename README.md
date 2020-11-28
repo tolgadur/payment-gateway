@@ -2,8 +2,9 @@
 This is a simple payment gateway that can easiliy be connected with a banks api to process payments from customer to merchant. Please note that this a simple implementation that does not guarantee safe payments. I recommend to use this only for educational purposes.
 
 ## User Guide
-The gateway works in three simple steps. As there is no official api registration process, we first have safe the merchants payment details by sending a simple post request:
+The gateway works in three simple steps. As there is no official api registration process, we first have safe the merchants payment details by sending a simple post request. The response to this request should include the merchants identifier. It's important to remember this identifier as thus far there is no endpoint to reset it.
 ```
+REQUEST:
 curl --location --request POST 'http://localhost:62177/payments/set/merchant/details' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -11,9 +12,8 @@ curl --location --request POST 'http://localhost:62177/payments/set/merchant/det
     "CardNumber": "Test",
     "CVV": "1"
 }'
-```
-The response to this request should include the merchants identifier. It's important to remember this identifier as thus far there is no endpoint to reset it.
-```
+
+RESPONSE:
 {
     "MerchantIdentifier": "a2c18568-0bf3-4318-ad64-ca1381153649",
     "Success": true
