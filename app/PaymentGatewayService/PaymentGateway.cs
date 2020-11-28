@@ -17,6 +17,7 @@ namespace app.PaymentGatewayService
     using app.Controllers;
     using app.PaymentGatewayService.Models;
     using System.Data;
+    using app.PaymentGatewayService.Models.ApiModels;
 
 
     /// <summary>
@@ -31,20 +32,48 @@ namespace app.PaymentGatewayService
         /// <returns>
         /// The <see cref="Task{IActionResult}" />.
         /// </returns>
-        public static async Task<IActionResult> ProcessPayment(PaymentDetailsPayload payload)
+        public static IActionResult ProcessPayment(ProcessPaymentPayload payload, IBankRequest bankRequest)
         {
             try
             {
-                // check with bank
-
-                // create new object
-                PaymentDetails paymentDetails = new PaymentDetails().Map(payload, true);
+                // process payment with bank
+                var merchantId = payload.MerchantIdentifier;
+                var isPayout = payload.IsPayout;
+                var merchant = ConnectionHelper.GetMerchantById(merchantId);
+                var bankRequestPayload = new BankRequestPayload().Map(payload, merchant, isPayout);
+                var bankResponse = (ProcessPaymentResponse) bankRequest.ProcessPayment(bankRequestPayload);
 
                 // save in database
+                PaymentDetails paymentDetails = new PaymentDetails().Map(payload, bankResponse.PaymentId, bankResponse.Success);
                 ConnectionHelper.SavePayment(paymentDetails);
 
                 // return response
-                return new OkObjectResult(new GetPaymentDetailsResponse().Map(paymentDetails));
+                return new OkObjectResult(new ProcessPaymentResponse().Map(paymentDetails));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// This endpoint will set the merchants details.
+        /// </summary>
+        /// <param name="payload">The payload.</param>
+        /// <returns>
+        /// The <see cref="Task{IActionResult}" />.
+        /// </returns>
+        public static IActionResult SetMerchantDetails(SetMerchantDetailsPayload payload)
+        {
+            try
+            {
+                // save in database
+                MerchantDetails merchantDetails = new MerchantDetails().Map(payload);
+                ConnectionHelper.SaveMerchantDetails(merchantDetails);
+
+                // return response
+                return new OkResult();
             }
             catch (Exception ex)
             {

@@ -7,21 +7,16 @@
 
 namespace app.Controllers
 {
-    using System;
-    using System.Net;
-    using System.Net.Http;
     using System.Web.Http;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
     using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json.Linq;
     using app.PaymentGatewayService;
     using Microsoft.Extensions.Configuration;
+    using app.PaymentGatewayService.Models.ApiModels;
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("payments")]
     public class PaymentGatewayController : ControllerBase
     {
         private readonly ILogger<PaymentGatewayController> _logger;
@@ -33,12 +28,34 @@ namespace app.Controllers
         }
 
         /// <summary>
+        /// Processes the payment and returns whether transaction was successful.
+        /// </summary>
+        /// <param name="payload">The payload.</param>
+        /// <returns>The <see cref="Task{IActionResult}"/>.</returns>
+        [HttpPost("set/merchant/details")]
+        public IActionResult SetMerchantDetails(SetMerchantDetailsPayload payload)
+        {
+            return await PaymentGateway.SetMerchantDetails(payload);
+        }
+
+        /// <summary>
+        /// Processes the payment and returns whether transaction was successful.
+        /// </summary>
+        /// <param name="payload">The payload.</param>
+        /// <returns>The <see cref="Task{IActionResult}"/>.</returns>
+        [HttpPost("process")]
+        public IActionResult ProcessPayment(ProcessPaymentPayload payload)
+        {
+            return PaymentGateway.ProcessPayment(payload, new BankRequestMock());
+        }
+
+        /// <summary>
         /// Gets payment details by id.
         /// </summary>
         /// <param name="paymentId">The payment identifier.</param>
         /// <returns>The <see cref="Task{IActionResult}"/>.</returns>
-        [HttpGet("payment/{paymentId}")]
-        public async Task<IActionResult> GetPaymentDetails([FromUri]string paymentId = null)
+        [HttpGet("{paymentId}")]
+        public IActionResult GetPaymentDetails([FromUri] string paymentId = null)
         {
             if (string.IsNullOrWhiteSpace(paymentId))
             {
@@ -47,17 +64,6 @@ namespace app.Controllers
 
             var paymentDetails = ConnectionHelper.GetPaymentById(paymentId);
             return new OkObjectResult(paymentDetails);
-        }
-
-        /// <summary>
-        /// Processes the payment and returns whether transaction was successful.
-        /// </summary>
-        /// <param name="payload">The payload.</param>
-        /// <returns>The <see cref="Task{IActionResult}"/>.</returns>
-        [HttpPost("payment/process")]
-        public async Task<IActionResult> ProcessPayment(PaymentDetailsPayload payload)
-        {
-            return await PaymentGateway.ProcessPayment(payload);
         }
 
         [HttpGet]

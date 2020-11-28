@@ -24,7 +24,7 @@ namespace app.Controllers
         /// Gets or sets the document identifier.
         /// </summary>
         [JsonProperty("Id", Required = Required.Always)]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the card number.
@@ -43,6 +43,12 @@ namespace app.Controllers
         /// </summary>
         [JsonProperty("Currency", Required = Required.Always)]
         public string Currency { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reference.
+        /// </summary>
+        [JsonProperty("Reference", Required = Required.Default)]
+        public float Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the Cvv.
@@ -67,13 +73,15 @@ namespace app.Controllers
         /// </summary>
         /// <param name="dto">The dto.</param>
         /// <returns>
-        /// The <see cref="PaymentDetails" />.
+        /// The <see cref="GetPaymentDetailsResponse" />.
         /// </returns>
-        public PaymentDetails Map(PaymentDetailsPayload payload, bool success)
+        public PaymentDetails Map(ProcessPaymentPayload payload, string uniqueIdentifier, bool success)
         {
+            this.Id = uniqueIdentifier;
             this.Amount = payload.Amount;
             this.CardNumber = payload.CardNumber;
             this.Currency = payload.Currency;
+            this.Reference = payload.Reference;
             this.Cvv = payload.Cvv;
             this.Success = success;
             this.ExpiryMonth = payload.ExpiryMonth;

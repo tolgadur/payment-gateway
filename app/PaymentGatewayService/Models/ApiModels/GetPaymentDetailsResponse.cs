@@ -1,20 +1,13 @@
 ﻿//-----------------------------------------------------------------------------------------------------------
-// <copyright file="PaymentDetailsResponse.cs">
+// <copyright file="ProcessPaymentResponse.cs">
 //  Copyright (c) Tolga Hasan Dur. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------------------------------------------
 
 
-
-namespace app.PaymentGatewayService.Models
+namespace app.Controllers
 {
-    using app.Controllers;
     using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
 
     /// <summary>
     /// Defines the <see cref="GetPaymentDetailsResponse" />.
@@ -22,10 +15,22 @@ namespace app.PaymentGatewayService.Models
     public class GetPaymentDetailsResponse
     {
         /// <summary>
-        /// Gets or sets the document identifier.
+        /// Gets or sets the card number.
         /// </summary>
-        [JsonProperty("Id", Required = Required.Always)]
-        public string Id { get; set; }
+        [JsonProperty("CardNumber", Required = Required.Always)]
+        public string CardNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        [JsonProperty("Amount", Required = Required.Always)]
+        public float Amount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the currency.
+        /// </summary>
+        [JsonProperty("Currency", Required = Required.Always)]
+        public string Currency { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the transaction was a success.
@@ -33,19 +38,21 @@ namespace app.PaymentGatewayService.Models
         [JsonProperty("Success", Required = Required.Always)]
         public bool Success { get; set; }
 
+
         /// <summary>
-        /// Maps the payment details.
+        /// Maps the model to the response json.
         /// </summary>
         /// <param name="dto">The dto.</param>
         /// <returns>
-        /// The <see cref="PaymentDetails" />.
+        /// The <see cref="GetPaymentDetailsResponse" />.
         /// </returns>
         public GetPaymentDetailsResponse Map(PaymentDetails paymentDetails)
         {
-            this.Id = paymentDetails.Id;
+            this.CardNumber = paymentDetails.CardNumber;
+            this.Amount = paymentDetails.Amount;
+            this.Currency = paymentDetails.Currency;
             this.Success = paymentDetails.Success;
             return this;
         }
-
     }
 }

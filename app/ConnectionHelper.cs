@@ -16,6 +16,7 @@ namespace app.PaymentGatewayService
     using System.Data;
     using Dapper;
     using app.Controllers;
+    using app.PaymentGatewayService.Models;
 
     public static class ConnectionHelper
     {
@@ -34,7 +35,7 @@ namespace app.PaymentGatewayService
         }
 
         /// <summary>
-        /// This will return the Connectionstring from our config file.
+        /// This will return the payment with the specified id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns> The Connectionstring </returns>
@@ -47,7 +48,7 @@ namespace app.PaymentGatewayService
         }
 
         /// <summary>
-        /// This will save a payment in the database
+        /// This will save a payment in the database.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns> The Connectionstring </returns>
@@ -57,6 +58,33 @@ namespace app.PaymentGatewayService
             {
                 cnn.Execute("INSERT INTO Payments (Id, CardNumber, Amount, Currency, Cvv, Success, ExpiryMonth) VALUES " +
                     "(@Id, @CardNumber, @Amount, @Currency, @Cvv, @Success, @ExpiryMonth)", paymentDetails);
+            }
+        }
+
+        /// <summary>
+        /// This will return the merchant with the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns> The Connectionstring </returns>
+        public static MerchantDetails GetMerchantById(string id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                return cnn.Query<MerchantDetails>(String.Format("SELECT * FROM Merchants WHERE Id='{0}'", id), new DynamicParameters()).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// This will save the merchants details in the database.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns> The Connectionstring </returns>
+        public static void SaveMerchantDetails(MerchantDetails merchantDetails)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("INSERT INTO Merchants (Id, Name, AccountNumber, Sortcode) VALUES " +
+                    "(@Id, @Name, @AccountNumber, @Sortcode)", merchantDetails);
             }
         }
 

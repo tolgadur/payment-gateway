@@ -8,18 +8,25 @@
 namespace app.Controllers
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using app.PaymentGatewayService.Models;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-
 
     /// <summary>
-    /// Defines the <see cref="PaymentDetailsPayload" />.
+    /// Defines the <see cref="ProcessPaymentPayload" />.
     /// </summary>
-    public class PaymentDetailsPayload
+    public class ProcessPaymentPayload
     {
+        /// <summary>
+        /// Gets or sets the merhcant identifier.
+        /// </summary>
+        [JsonProperty("MerchantIdentifier", Required = Required.Always)]
+        public string MerchantIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether it's a payout. False implies that it tis a request.
+        /// </summary>
+        [JsonProperty("IsPayout", Required = Required.Always)]
+        public bool IsPayout { get; set; }
+
         /// <summary>
         /// Gets or sets the card number.
         /// </summary>
@@ -27,10 +34,22 @@ namespace app.Controllers
         public string CardNumber { get; set; }
 
         /// <summary>
+        /// Gets or sets the customers name.
+        /// </summary>
+        [JsonProperty("Name", Required = Required.Always)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Gets or sets the amount.
         /// </summary>
         [JsonProperty("Amount", Required = Required.Always)]
         public float Amount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reference.
+        /// </summary>
+        [JsonProperty("Reference", Required = Required.Default)]
+        public float Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the currency.
@@ -47,7 +66,7 @@ namespace app.Controllers
         /// <summary>
         /// Gets or sets the expiry date
         /// </summary>
-        [JsonProperty("ExpiryMonth", Required = Required.Default)]
+        [JsonProperty("ExpiryMonth", Required = Required.Always)]
         public DateTime ExpiryMonth { get; set; }
     }
 }
