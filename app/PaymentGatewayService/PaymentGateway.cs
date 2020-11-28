@@ -8,15 +8,10 @@
 namespace app.PaymentGatewayService
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Data.SQLite;
-    using System.Configuration;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using app.Controllers;
     using app.PaymentGatewayService.Models;
-    using System.Data;
     using app.PaymentGatewayService.Models.ApiModels;
 
 
@@ -41,7 +36,7 @@ namespace app.PaymentGatewayService
                 var isPayout = payload.IsPayout;
                 var merchant = ConnectionHelper.GetMerchantById(merchantId);
                 var bankRequestPayload = new BankRequestPayload().Map(payload, merchant, isPayout);
-                var bankResponse = (ProcessPaymentResponse) bankRequest.ProcessPayment(bankRequestPayload);
+                var bankResponse = bankRequest.ProcessPayment(bankRequestPayload);
 
                 // save in database
                 PaymentDetails paymentDetails = new PaymentDetails().Map(payload, bankResponse.PaymentId, bankResponse.Success);
@@ -73,7 +68,7 @@ namespace app.PaymentGatewayService
                 ConnectionHelper.SaveMerchantDetails(merchantDetails);
 
                 // return response
-                return new OkResult();
+                return new OkObjectResult(new SetMerchantDetailsResponse().Map(merchantDetails));
             }
             catch (Exception ex)
             {

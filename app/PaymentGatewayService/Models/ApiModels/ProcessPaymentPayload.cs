@@ -49,7 +49,7 @@ namespace app.Controllers
         /// Gets or sets the reference.
         /// </summary>
         [JsonProperty("Reference", Required = Required.Default)]
-        public float Reference { get; set; }
+        public string Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the currency.
@@ -66,7 +66,7 @@ namespace app.Controllers
         /// <summary>
         /// Gets or sets the expiry date
         /// </summary>
-        [JsonProperty("ExpiryMonth", Required = Required.Always)]
-        public DateTime ExpiryMonth { get; set; }
+        [JsonProperty("ExpiryDate", Required = Required.Always)]
+        public DateTime ExpiryDate { get; set; }
     }
 }

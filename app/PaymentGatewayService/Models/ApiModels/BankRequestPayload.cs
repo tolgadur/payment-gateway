@@ -65,7 +65,7 @@ namespace app.PaymentGatewayService.Models.ApiModels
         /// Gets or sets the reference.
         /// </summary>
         [JsonProperty("Reference", Required = Required.Default)]
-        public float Reference { get; set; }
+        public string Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the currency.
@@ -76,8 +76,8 @@ namespace app.PaymentGatewayService.Models.ApiModels
         /// <summary>
         /// Gets or sets the expiry date
         /// </summary>
-        [JsonProperty("ExpiryMonth", Required = Required.Always;)]
-        public DateTime ExpiryMonth { get; set; }
+        [JsonProperty("ExpiryDate", Required = Required.Always)]
+        public DateTime ExpiryDate { get; set; }
 
         /// <summary>
         /// Maps to models to bank request payload.
@@ -91,7 +91,7 @@ namespace app.PaymentGatewayService.Models.ApiModels
             this.Amount = payload.Amount;
             this.Currency = payload.Currency;
             this.Reference = payload.Reference;
-            this.ExpiryMonth = payload.ExpiryMonth;
+            this.ExpiryDate = payload.ExpiryDate;
 
             // set recipeint and sender depending on whether money is sent or received from merchant.
             if (isPayout)

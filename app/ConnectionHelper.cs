@@ -56,8 +56,8 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO Payments (Id, CardNumber, Amount, Currency, Cvv, Success, ExpiryMonth) VALUES " +
-                    "(@Id, @CardNumber, @Amount, @Currency, @Cvv, @Success, @ExpiryMonth)", paymentDetails);
+                cnn.Execute("INSERT INTO Payments (Id, CardNumber, Amount, Currency, Cvv, Success, ExpiryDate) VALUES " +
+                    "(@Id, @CardNumber, @Amount, @Currency, @Cvv, @Success, @ExpiryDate)", paymentDetails);
             }
         }
 
@@ -83,8 +83,7 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO Merchants (Id, Name, AccountNumber, Sortcode) VALUES " +
-                    "(@Id, @Name, @AccountNumber, @Sortcode)", merchantDetails);
+                cnn.Execute("INSERT INTO Merchants (Id, Name, CardNumber, Cvv) VALUES (@Id, @Name, @CardNumber, @Cvv)", merchantDetails);
             }
         }
 

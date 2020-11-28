@@ -14,16 +14,14 @@ namespace app.Controllers
     using app.PaymentGatewayService;
     using Microsoft.Extensions.Configuration;
     using app.PaymentGatewayService.Models.ApiModels;
+    using System;
 
     [ApiController]
     [Route("payments")]
     public class PaymentGatewayController : ControllerBase
     {
-        private readonly ILogger<PaymentGatewayController> _logger;
-
-        public PaymentGatewayController(IConfiguration configuration, ILogger<PaymentGatewayController> logger)
+        public PaymentGatewayController(IConfiguration configuration)
         {
-            _logger = logger;
             ConnectionHelper.Init(configuration);
         }
 
@@ -35,7 +33,7 @@ namespace app.Controllers
         [HttpPost("set/merchant/details")]
         public IActionResult SetMerchantDetails(SetMerchantDetailsPayload payload)
         {
-            return await PaymentGateway.SetMerchantDetails(payload);
+            return PaymentGateway.SetMerchantDetails(payload);
         }
 
         /// <summary>
@@ -46,6 +44,11 @@ namespace app.Controllers
         [HttpPost("process")]
         public IActionResult ProcessPayment(ProcessPaymentPayload payload)
         {
+            if (DateTime.Now > payload.ExpiryDate)
+            {
+                return BadRequest("The customers credit card has expired.");
+            }
+
             return PaymentGateway.ProcessPayment(payload, new BankRequestMock());
         }
 

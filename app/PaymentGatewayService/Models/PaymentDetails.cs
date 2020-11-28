@@ -48,7 +48,7 @@ namespace app.Controllers
         /// Gets or sets the reference.
         /// </summary>
         [JsonProperty("Reference", Required = Required.Default)]
-        public float Reference { get; set; }
+        public string Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the Cvv.
@@ -65,8 +65,8 @@ namespace app.Controllers
         /// <summary>
         /// Gets or sets the expiry date
         /// </summary>
-        [JsonProperty("ExpiryMonth", Required = Required.Always)]
-        public DateTime ExpiryMonth { get; set; }
+        [JsonProperty("ExpiryDate", Required = Required.Always)]
+        public DateTime ExpiryDate { get; set; }
 
         /// <summary>
         /// Maps the api payload
@@ -84,7 +84,7 @@ namespace app.Controllers
             this.Reference = payload.Reference;
             this.Cvv = payload.Cvv;
             this.Success = success;
-            this.ExpiryMonth = payload.ExpiryMonth;
+            this.ExpiryDate = payload.ExpiryDate;
             return this;
         }
     }
