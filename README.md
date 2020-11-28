@@ -38,7 +38,7 @@ curl --location --request POST 'http://localhost:62177/payments/process' \
     "ExpiryDate": "01.01.2040"
 }'
 
-GET:
+RESPONSE:
 {
     "PaymentId": "822f4b34-c3a9-4cf3-9194-9a26b12770ee",
     "Success": true
