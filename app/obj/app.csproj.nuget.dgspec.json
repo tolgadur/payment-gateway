@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[3.0.2, )"
             },
+            "Microsoft.TestPlatform.TestHost": {
+              "target": "Package",
+              "version": "[16.8.0, )"
+            },
             "NSwag.Annotations": {
               "target": "Package",
               "version": "[13.9.4, )"

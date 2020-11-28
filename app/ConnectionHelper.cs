@@ -56,8 +56,8 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO Payments (Id, CardNumber, Amount, Currency, Cvv, Success, ExpiryDate) VALUES " +
-                    "(@Id, @CardNumber, @Amount, @Currency, @Cvv, @Success, @ExpiryDate)", paymentDetails);
+                cnn.Execute("INSERT OR REPLACE INTO Payments (Id, CardNumber, Amount, Currency, Cvv, Success, ExpiryDate, Reference) VALUES " +
+                    "(@Id, @CardNumber, @Amount, @Currency, @Cvv, @Success, @ExpiryDate, @Reference)", paymentDetails);
             }
         }
 
@@ -70,7 +70,7 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute(String.Format("DELETE Payment WHERE Id='{0}'", id));
+                cnn.Execute(String.Format("DELETE FROM Payments WHERE Id='{0}'", id));
             }
         }
 
@@ -96,7 +96,7 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO Merchants (Id, Name, CardNumber, Cvv) VALUES (@Id, @Name, @CardNumber, @Cvv)", merchantDetails);
+                cnn.Execute("INSERT OR REPLACE INTO Merchants (Id, Name, CardNumber, Cvv) VALUES (@Id, @Name, @CardNumber, @Cvv)", merchantDetails);
             }
         }
 
@@ -109,7 +109,7 @@ namespace app.PaymentGatewayService
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute(String.Format("DELETE Merchant WHERE Id='{0}'", id));
+                cnn.Execute(String.Format("DELETE FROM Merchants WHERE Id='{0}'", id));
             }
         }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ORWyRV74/G5qchSACnSZz1X3PUt9uqiNraCB1mtyUMJCdTiC9C0WHDw5xQtGi9tF5W7E6uvToKBptbfF0EFt0g==",
+  "dgSpecHash": "e9Yzuce/rjAXq7Ps8QBTmDH1ZjwUJpNLvOYiSWdPU3eLf2a8AFMfMz0jlNigjhwhjE5XmNIMnw5w6+6d5MBWpA==",
   "success": true,
   "projectFilePath": "C:\\Users\\mrhap\\side_projects\\payment-gateway\\app\\app.csproj",
   "expectedPackageFiles": [
@@ -56,6 +56,8 @@
     "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.net.http.headers\\2.1.0\\microsoft.net.http.headers.2.1.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.testplatform.objectmodel\\16.8.0\\microsoft.testplatform.objectmodel.16.8.0.nupkg.sha512",
+    "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.testplatform.testhost\\16.8.0\\microsoft.testplatform.testhost.16.8.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\namotion.reflection\\1.0.14\\namotion.reflection.1.0.14.nupkg.sha512",
@@ -65,6 +67,7 @@
     "C:\\Users\\mrhap\\.nuget\\packages\\njsonschema\\10.3.1\\njsonschema.10.3.1.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\nswag.annotations\\13.9.4\\nswag.annotations.13.9.4.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\nswag.core\\13.9.4\\nswag.core.13.9.4.nupkg.sha512",
+    "C:\\Users\\mrhap\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\nunit3testadapter\\3.17.0\\nunit3testadapter.3.17.0.nupkg.sha512",
     "C:\\Users\\mrhap\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
