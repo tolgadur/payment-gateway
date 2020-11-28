@@ -82,7 +82,6 @@ namespace app.PaymentGatewayService.Models.ApiModels
         /// <summary>
         /// Maps to models to bank request payload.
         /// </summary>
-        /// <param name="dto">The dto.</param>
         /// <returns>
         /// The <see cref="GetPaymentDetailsResponse" />.
         /// </returns>

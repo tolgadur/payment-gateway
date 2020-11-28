@@ -71,7 +71,6 @@ namespace app.Controllers
         /// <summary>
         /// Maps the api payload
         /// </summary>
-        /// <param name="dto">The dto.</param>
         /// <returns>
         /// The <see cref="GetPaymentDetailsResponse" />.
         /// </returns>

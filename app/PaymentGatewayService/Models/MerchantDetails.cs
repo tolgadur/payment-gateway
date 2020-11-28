@@ -41,7 +41,7 @@ namespace app.PaymentGatewayService.Models
         /// <summary>
         /// Maps the api payload
         /// </summary>
-        /// <param name="dto">The dto.</param>
+        /// <param name="payload">The payload.</param>
         /// <returns>
         /// The <see cref="PaymentDetails" />.
         /// </returns>

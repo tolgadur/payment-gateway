@@ -42,7 +42,7 @@ namespace app.Controllers
         /// <summary>
         /// Maps the model to the response json.
         /// </summary>
-        /// <param name="dto">The dto.</param>
+        /// <param name="paymentDetails">The paymentDetails.</param>
         /// <returns>
         /// The <see cref="GetPaymentDetailsResponse" />.
         /// </returns>
