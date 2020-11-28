@@ -65,7 +65,15 @@ namespace app.Controllers
                 return BadRequest("Payment Id is not specified.");
             }
 
+            // get payment details
             var paymentDetails = ConnectionHelper.GetPaymentById(paymentId);
+            if (paymentDetails == null)
+            {
+                return BadRequest("Payment Id is wrong.");
+            }
+
+            // mask card number and return
+            paymentDetails.CardNumber = new string('*', paymentDetails.CardNumber.Length);
             return new OkObjectResult(paymentDetails);
         }
 
