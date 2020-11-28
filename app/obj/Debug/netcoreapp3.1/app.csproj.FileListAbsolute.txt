@@ -42,3 +42,10 @@ C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtime
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
 C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\PdfSharp.Charting.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\PdfSharp.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\xunit.assert.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\xunit.core.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\de\PdfSharp.Charting.resources.dll
+C:\Users\mrhap\side_projects\payment-gateway\app\bin\Debug\netcoreapp3.1\de\PdfSharp.resources.dll

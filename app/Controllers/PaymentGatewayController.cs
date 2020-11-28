@@ -10,7 +10,6 @@ namespace app.Controllers
     using System.Web.Http;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
     using app.PaymentGatewayService;
     using Microsoft.Extensions.Configuration;
     using app.PaymentGatewayService.Models.ApiModels;
@@ -77,10 +76,13 @@ namespace app.Controllers
             return new OkObjectResult(paymentDetails);
         }
 
+        /// <summary>
+        /// Short message displayed for debugging purposes.
+        /// </summary>
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Hello World");
+            return Ok("Api is running.");
         }
     }
 }

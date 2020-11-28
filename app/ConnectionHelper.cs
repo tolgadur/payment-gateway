@@ -62,6 +62,19 @@ namespace app.PaymentGatewayService
         }
 
         /// <summary>
+        /// This will delete the payment with the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns> The Connectionstring </returns>
+        public static void DeletePaymentById(string id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute(String.Format("DELETE Payment WHERE Id='{0}'", id));
+            }
+        }
+
+        /// <summary>
         /// This will return the merchant with the specified id.
         /// </summary>
         /// <param name="id">The id.</param>
@@ -84,6 +97,19 @@ namespace app.PaymentGatewayService
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute("INSERT INTO Merchants (Id, Name, CardNumber, Cvv) VALUES (@Id, @Name, @CardNumber, @Cvv)", merchantDetails);
+            }
+        }
+
+        /// <summary>
+        /// This will delete the merchant with the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns> The Connectionstring </returns>
+        public static void DeleteMerchantById(string id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute(String.Format("DELETE Merchant WHERE Id='{0}'", id));
             }
         }
 
