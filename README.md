@@ -54,7 +54,7 @@ curl --location --request GET 'http://localhost:62177/payments/822f4b34-c3a9-4cf
 RESPONSE:
 {
     "Id": "822f4b34-c3a9-4cf3-9194-9a26b12770ee",
-    "CardNumber": "Test",
+    "CardNumber": "****",
     "Amount": 352.0,
     "Currency": "USD",
     "Reference": null,
