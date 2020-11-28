@@ -12,7 +12,6 @@ curl --location --request POST 'http://localhost:62177/payments/set/merchant/det
     "CVV": "1"
 }'
 ```
-
 The response to this request should include the merchants identifier. It's important to remember this identifier as thus far there is no endpoint to reset it.
 ```
 {
@@ -20,6 +19,7 @@ The response to this request should include the merchants identifier. It's impor
     "Success": true
 }
 ```
+
 
 With the merchants identifier and all other details of the payment we would like to process we can then sent a simple post request as such:
 ```
@@ -37,7 +37,6 @@ curl --location --request POST 'http://localhost:62177/payments/process' \
     "ExpiryDate": "01.01.2040"
 }'
 ```
-
 The response will be boolean value indication whether the process was a success, and a payment id that can later be used to retrieve the payment information. Again, thus far there is no endpoint to retrieve this id if lost.
 ```
 {
@@ -47,10 +46,11 @@ The response will be boolean value indication whether the process was a success,
 ```
 
 
+At last, with a simple GET request with the payment id as a url parameter, we can retrieve the payment information.
 ```
 curl --location --request GET 'http://localhost:62177/payments/822f4b34-c3a9-4cf3-9194-9a26b12770ee'
 ```
-
+The result will include all important information with the card number being masked.
 ```
 {
     "Id": "822f4b34-c3a9-4cf3-9194-9a26b12770ee",
